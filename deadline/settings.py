@@ -1,5 +1,5 @@
 """
-Django settings for deadline project.
+Django settings for smartdress project.
 
 For more information on this file, see
 https://docs.djangoproject.com/en/1.7/topics/settings/
@@ -17,14 +17,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 # See https://docs.djangoproject.com/en/1.7/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'iu_bscl$7wc1atbkfj18y9xtoaf)7m$y3166c1v!u5(%=b5q$v'
+SECRET_KEY = 'h2$$k(6g4=(wow#j^-a-v3wm5vq+hukp6hr#nf!f84lpj7mxb7'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
 TEMPLATE_DEBUG = True
-
-ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -48,9 +46,9 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
-ROOT_URLCONF = 'deadline.urls'
+ROOT_URLCONF = 'smartdress.urls'
 
-WSGI_APPLICATION = 'deadline.wsgi.application'
+WSGI_APPLICATION = 'smartdress.wsgi.application'
 
 
 # Database
@@ -80,4 +78,23 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
 
+import dj_database_url
+DATABASES['default'] =  dj_database_url.config()
+
+# Honor the 'X-Forwarded-Proto' header for request.is_secure()
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
+# Allow all host headers
+ALLOWED_HOSTS = ['*']
+
+# Static asset configuration
+import os
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+STATIC_ROOT = 'staticfiles'
 STATIC_URL = '/static/'
+
+TEMPLATE_DIRS = ((BASE_DIR + '/templates/'),)
+
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+)
