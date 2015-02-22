@@ -92,6 +92,3 @@ STATIC_URL = '/staticf/'
 
 TEMPLATE_DIRS = ((BASE_DIR + '/templates/'),)
 
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static'),
-)
