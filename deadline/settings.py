@@ -1,5 +1,5 @@
 """
-Django settings for smartdress project.
+Django settings for deadline project.
 
 For more information on this file, see
 https://docs.djangoproject.com/en/1.7/topics/settings/
@@ -46,9 +46,9 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
-ROOT_URLCONF = 'smartdress.urls'
+ROOT_URLCONF = 'deadline.urls'
 
-WSGI_APPLICATION = 'smartdress.wsgi.application'
+WSGI_APPLICATION = 'deadline.wsgi.application'
 
 
 # Database
